@@ -90,13 +90,12 @@ Section: python
 Depends: ${python3:Depends}, ${misc:Depends},
  dnf-data (= ${binary:Version}),
  python3-gpg,
- deltarpm,
  python3-hawkey (>= 0.35.3-1~),
  python3-libdnf (>= 0.35.3-1~),
  python3-libcomps (>= 0.1.8-1~),
  python3-rpm (>= 4.14.0-1~),
  python3-distutils | libpython3-stdlib (<< 3.7~),
-Recommends: python3-unbound,
+Recommends: deltarpm, python3-unbound,
 Suggests: python3-dnf-doc
 Description: Python interface to DNF (Python 3)
  Package manager forked from Yum, using libsolv as a dependency resolver.
