@@ -1,0 +1,9 @@
+000001_doc-CMakeLists.txt_support-debian-python23-sphinx.patch
+000100_etc-dnf-dnf_test.conf.in_add-testing-configuration.patch
+000110_CMakeLists.txt_substitute-etc-dnf-dnf_test.conf.in.patch
+000120_CMakeLists.txt_create-testing-persistdir.patch
+000130_tests-test_cli.py_use-testing-configuration-file.patch
+000200_etc_bash_completion.d_CMakelists.txt_provide-custom-bashcompdir-fallback.patch
+800000_etc_dnf_dnf.conf_revert-add-best-as-default-behavior-9f9392c81dc493898dfab072cf0c7b1ae99df186-0d47031b4deb3167ecdab7b3c0f5a75142e5d8be.patch
+800100_dnf_db_group.py_revert-consequences-of-fail-safe-mechanism-a8a3cf4247fe374855e1ee292eb2b4bda835f690-ff341af41b821280643af4d0954a5f2ae4e9adc8.patch
+800200_dnf_rpm___init__.py_revert-detection-for-armv7hcnl-9eab5a74b5b67f47ade3f0621e0b86b5203022db-4f4de67ccf8934af10e78eff1b532eb61e295151.patch
