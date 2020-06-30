@@ -1,0 +1,5 @@
+usr/bin/dnf*
+usr/share/bash-completion/completions/dnf
+usr/share/man/man7/dnf.modularity.7
+usr/share/man/man8/dnf.8
+usr/share/man/man8/yum2dnf.8

@@ -1,0 +1,60 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+# export DH_VERBOSE = 1
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/default.mk
+
+%:
+	dh "${@}" --parallel --buildsystem=cmake --with=python3
+
+override_dh_auto_configure:
+	dh_auto_configure --builddirectory=build -- -DPYTHON_DESIRED:STRING=3 -DWITH_MAN:BOOL=ON \
+	                                            -DBASH_COMPLETION_FALLBACKDIR:PATH=/usr/share/bash-completion/completions
+
+override_dh_auto_build:
+	dh_auto_build --builddirectory=build -- all doc-man doc-html
+
+override_dh_auto_install:
+	dh_auto_install --builddirectory=build
+	# We don't need systemd integration.
+	rm -rfv 'debian/tmp/usr/lib/systemd/'
+	# Remove yum compat files that are already provided by the "old" yum package in Debian.
+	# This mostly corresponds to yum_compat_level == preview in dnf.spec. 
+	rm -fv 'debian/tmp/usr/share/man/man1/yum-aliases.1'
+	rm -fv 'debian/tmp/usr/share/man/man5/yum.conf.5'
+	rm -fv 'debian/tmp/usr/share/man/man8/yum.8'
+	rm -fv 'debian/tmp/usr/share/man/man8/yum-shell.8'
+	# Remove automatic features.
+	rm -fv 'debian/tmp/usr/bin/dnf-automatic-3'
+	rm -fv 'debian/tmp/usr/share/man/man8/dnf-automatic.8'
+	# Use system-provides files.
+	rm -fv 'build/doc/_static/jquery.js' 'build/doc/_static/underscore.js'
+	# Re-root HTML documentation to an "html" subdir.
+	mkdir -p 'build/doc/html'
+	mv 'build/doc/'*.html 'build/doc/html/'
+	mv 'build/doc/_sources' 'build/doc/html/'
+	mv 'build/doc/_static' 'build/doc/html/'
+
+override_dh_auto_clean:
+	dh_auto_clean --builddirectory=build
+
+# Need a "working" terminal environment to pass tests.
+# Maybe rip that out.
+# When building with sbuild, users do not have a home directory if /home is
+# shadowed. Replace HOME with a known directory.
+override_dh_auto_test:
+	mkdir '$(CURDIR)/debian/tests-home'
+	TERM='xterm' HOME='$(CURDIR)/debian/tests-home' dh_auto_test --builddirectory=build -- ARGS='-VV'
+
+override_dh_missing:
+	dh_missing --fail-missing
+
+override_dh_install:
+	if dpkg --compare-versions "$$(dpkg-query -f='$${Version}' --show 'debhelper')" 'ge' '12'; then \
+		dh_install; \
+	else \
+		dh_install --fail-missing ; \
+	fi

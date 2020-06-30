@@ -1,0 +1,7 @@
+etc/dnf/vars
+etc/dnf/aliases.d
+etc/dnf/plugins
+etc/dnf/modules.d
+etc/dnf/modules.defaults.d
+var/cache/dnf
+var/lib/dnf

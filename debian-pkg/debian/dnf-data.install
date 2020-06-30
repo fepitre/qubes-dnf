@@ -1,0 +1,6 @@
+debian/tmp/etc/dnf/
+debian/tmp/etc/libreport/
+debian/tmp/etc/logrotate.d/dnf
+usr/lib/tmpfiles.d/dnf.conf
+usr/share/locale/
+usr/share/man/man5/dnf.conf.5

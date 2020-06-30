@@ -1,0 +1,14 @@
+Description: Use custom testing dnf configuaration file for (some) tests.
+Author: Mihai Moldovan <ionic@ionic.de>
+
+--- a/tests/test_cli.py
++++ b/tests/test_cli.py
+@@ -183,7 +183,7 @@ class ConfigureTest(tests.support.DnfBas
+         self.base._plugins = mock.Mock()
+         self.cli = dnf.cli.cli.Cli(self.base)
+         self.cli.command = mock.Mock()
+-        self.conffile = os.path.join(tests.support.dnf_toplevel(), "etc/dnf/dnf.conf")
++        self.conffile = os.path.join(tests.support.dnf_toplevel(), "etc/dnf/dnf_test.conf")
+ 
+     @mock.patch('dnf.util.am_i_root', lambda: False)
+     def test_configure_user(self):

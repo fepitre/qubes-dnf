@@ -1,0 +1,5 @@
+dnf (4.2.9-1) unstable; urgency=medium
+
+  * Initial commit
+
+ -- Frédéric Pierret (fepitre) <frederic.pierret@qubes-os.org>  Tue, 29 Sep 2020 17:00:00 +0200

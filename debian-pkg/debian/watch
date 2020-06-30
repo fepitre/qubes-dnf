@@ -1,0 +1,3 @@
+version=4
+opts=filenamemangle=s/.+\/(?:v|dnf\-)?(\d\S+)\.tar\.gz/dnf-$1\.tar\.gz/ \
+  https://github.com/rpm-software-management/dnf/releases .*/(?:v|dnf\-)?(\d\S+)\.tar\.gz
