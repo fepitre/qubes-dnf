@@ -1,0 +1,19 @@
+Description: Add a testing configuration for the test suite.
+Author: Mihai Moldovan <ionic@ionic.de>
+
+We have to make sure that dnf uses a persistdir that actually exists. In a
+build environment, we can't just create system directories and writing to the
+user's home directory isn't a viable idea for non-chroot builds.
+
+Define persistdir as a directory in the source tree's tests subdirectory
+instead.
+
+--- /dev/null
++++ b/etc/dnf/dnf_test.conf.in
+@@ -0,0 +1,6 @@
++[main]
++gpgcheck=1
++installonly_limit=3
++clean_requirements_on_remove=True
++best=True
++persistdir=@CMAKE_CURRENT_SOURCE_DIR@/tests/dnfpersist

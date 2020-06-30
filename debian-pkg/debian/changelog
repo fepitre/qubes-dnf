@@ -1,0 +1,135 @@
+dnf (4.2.9-1) unstable; urgency=medium
+
+  [ Mihai Moldovan ]
+  * New upstream release.
+  * debian/control:
+    + Update to standards version 4.4.0.1. No changes necessary.
+    + Fix homepage.
+    + Change dependency on *-hawkey to *-libdnf.
+    + Add versioned dependency to *-libdnf dependencies for >= 0.35.3-1~.
+    + Add versioned dependency to libcomps dependencies for >= 0.1.8-1~.
+    + Add versioned dependency to python*-rpm dependencies for >= 4.14.0-1~.
+    + Add versioned dependency to python3-dnf dependency for current version.
+    + Drop dependencies upon librepo, upstream did it and they should be
+      transitive anyway.
+    + Drop dependencies upon python-lzma.
+    + Drop Python 2 binpkgs.
+    + Reorder run-time dependencies.
+    + Drop old Python{,3}-Version fields. The base python packages are new
+      enough.
+    + Add versioned build dependency on libmodulemd1 >= 1.4.0-1~.
+    + Add versioned run-time dependency on libmodulemd1 >= 1.4.0-1~ to dnf.
+    + Add build dependency on python-enum34.
+    + Add run-time dependency on python-enum34 to dnf.
+    + Add recommended dependency on python3-unbound to python3-dnf.
+    + Add run-time dependency on python-unbound to yum4.
+    + Add run-time dependency on deltarpm to yum4.
+    + Drop python*-iniparse dependencies.
+    + Add run-time dependency on sqlite3 to dnf.
+    + Rename yum4 binpkg to nextgen-yum4.
+    + Make yum4 a transitional package.
+    + Let nextgen-yum4 Break, Replace and Provide earlier yum4 packages.
+    + Let dnf break dnf-plugins-core << 4.0.6-1~.
+    + Add dependencies upon python3-hawkey.
+    + Fix python3-dnf suggestion to python3-dnf-doc, not python-dnf-doc.
+    + Change versioned dh dependency to >= 9~.
+    + Add Vcs-{Browser,Git} tags.
+    + Add Multi-Arch tags to binpkgs.
+    + Drop {lib,}python3-dev build dependencies, we really only need the
+      interpreter since no libraries are being generated/compiled.
+    + Add python3 build dependency.
+    + Split up dnf into dnf and dnf-data binpkgs to avoid circular
+      dependencies.
+    + Let dnf depend upon dnf-data.
+    + Change python3-dnf dependency from dnf to dnf-data, breaking the
+      dependency loop.
+  * debian/rules:
+    + Make dh_missing fail on uninstalled files.
+    + Create and use temporary home directory for tests.
+    + Better quoting.
+    + Stop creating tests/dnfpersist, cmake will already do that.
+    + Remove yum compat files we do not want to install, because they are
+      provided by the proper yum package. Roughly corresponds to dnf.spec's
+      yum_compat_level = preview.
+    + Remove automatic files we do not want to install because we do not need
+      or want any automatic updates in Debian.
+    + Drop Python 2 support.
+    + Remove integrated copies of {jquery,underscore}.js.
+    + Also remove dnf-automatic-3 binary.
+    + Quote $@ variable in dh call.
+    + Re-root HTML documentation to an "html" subdir.
+    + Drop dh_bash-completion usage.
+    + Pass BASH_COMPLETION_FALLBACKDIR to low-effortly support older distros.
+    + Add run-time dependency upon python3-distutils or its former package
+      libpython3-stdlib (but only if earlier than 3.7~) to python3-librepo.
+  * debian/copyright:
+    + Update.
+  * debian/:
+    + Rename yum4.install to nextgen-yum4.install.
+    + Add nextgen-yum4.links.
+    + Add dnf.links.
+    + Remove nextgen-yum4.install, content moved to nextgen-yum4.links.
+    + Add nextgen-yum4.lintian-overrides.
+    + Add python3-dnf-doc.links.
+    + Drop python-* files.
+    + Add python3-dnf-doc.doc-base.
+    + Drop dnf.bash-completion or rather move content to dnf.install. The build
+      system already installs the file to the correct location in most
+      occasions. For old distros, we can provide a workaround.
+    + Add source/lintian-overrides.
+    + Rename dnf.dirs to dnf-data.dirs. 
+    + Copy dnf.docs to dnf-data.docs.
+    + Add dnf-data.install.
+  * debian/dnf.dirs:
+    + Create additional directories in etc/dnf.
+  * debian/dnf.install:
+    + Install new dnf.modularity.7 man page.
+    + Remove dnf.automatic.8 man page. We don't want automatic stuff on Debian.
+  * debian/patches:
+    + Refresh.
+    + Drop 000140_tests-test_history_undo.py_use-testing-persistdir.patch
+      since the whole test has been stubbed out.
+    + Add 800000_etc_dnf_dnf.conf_revert-add-best-as-default-behavior-
+          9f9392c81dc493898dfab072cf0c7b1ae99df186-
+          0d47031b4deb3167ecdab7b3c0f5a75142e5d8be.patch as applied by Fedora
+      in order to not let dnf use the highest available version or just fail.
+    + Add 800100_dnf_db_group.py_revert-consequences-of-fail-safe-mechanism-
+          a8a3cf4247fe374855e1ee292eb2b4bda835f690-
+          ff341af41b821280643af4d0954a5f2ae4e9adc8.patch as applied by Fedora
+      to not error out when missing modular data, but rather just issue a
+      warning.
+    + Add 800200_dnf_rpm___init__.py_revert-detection-for-armv7hcnl-
+          9eab5a74b5b67f47ade3f0621e0b86b5203022db-
+          4f4de67ccf8934af10e78eff1b532eb61e295151.patch as applied by Fedora
+      to remove a yet-unknown architecture.
+    + Add 000200_etc_bash_completion.d_CMakelists.txt_provide-custom-
+          bashcompdir-fallback.patch allowing setting a fallback path if no
+      cmake bash-completion config file is available.
+  * debian/nextgen-yum4.links:
+    + Create dnf-3 -> yum4 symlink.
+    + Create dnf.8.gz -> yum4.8.gz symlink.
+  * debian/dnf.links:
+    + Create dnf-3 -> dnf symlink.
+    + Create dnf-3 -> dnf symlinks for man pages.
+  * debian/nextgen-yum4.lintian-overrides:
+    + Ignore false-positive warning for a possible spelling mistake.
+  * debian/python3-dnf-doc.links:
+    + Replace {jquery,underscore}.js with system versions.
+  * debian/python3-dnf-doc.docs:
+    + Adapt to new build directory.
+    + Pull (newly-created) html directory instead of individual things.
+  * debian/python3-dnf-doc.doc-base:
+    + Register user manual and Python API documentation.
+  * debian/source/lintian-overrides:
+    + Silence warning about an "empty" section. Debian wants to ignore the
+      existence of COPYING (and licensing) files, but I don't.
+  * debian/dnf-data.install:
+    + Split up/move content from dnf.install.
+
+ -- Mihai Moldovan <ionic@ionic.de>  Wed, 11 Sep 2019 20:50:51 +0200
+
+dnf (2.7.5-0x2go1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- X2Go Release Manager <git-admin@x2go.org>  Wed, 31 Jan 2018 23:01:34 +0100

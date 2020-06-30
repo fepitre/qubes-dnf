@@ -1,0 +1,115 @@
+Source: dnf
+Section: admin
+Priority: optional
+Maintainer: Mihai Moldovan <ionic@ionic.de>
+Uploaders: Frédéric Pierret <frederic.pierret@qubes-os.org>
+Build-Depends: debhelper (>= 9~),
+ dh-python,
+ python3,
+ bash-completion,
+ cmake,
+ pkg-config,
+ gettext,
+ python3-hawkey (>= 0.35.3-1~),
+ python3-libdnf (>= 0.35.3-1~),
+ python3-libcomps (>= 0.1.8-1~),
+ python3-rpm (>= 4.14.0-1~),
+ systemd,
+ python3-sphinx,
+ python3-nose,
+ python3-gpg,
+ libmodulemd1 (>= 1.4.0-1~),
+Standards-Version: 4.4.0.1
+Homepage: https://github.com/rpm-software-management/dnf
+Vcs-Browser: https://github.com/rpm-software-management/dnf
+Vcs-Git: https://github.com/rpm-software-management/dnf.git
+#Testsuite: autopkgtest-pkg-python
+
+Package: dnf
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${python3:Depends},
+ dnf-data (= ${binary:Version}),
+ python3-dnf (= ${binary:Version}),
+ libmodulemd1 (>= 1.4.0-1~),
+ python3-dbus,
+ sqlite3,
+Breaks: dnf-plugins-core (<< 4.0.6-1~)
+Description: Dandified Yum package manager
+ Package manager forked from Yum, using libsolv as a dependency resolver.
+ .
+ This package provides the dnf program.
+
+Package: dnf-data
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends},
+Description: Dandified Yum package manager (data files)
+ Package manager forked from Yum, using libsolv as a dependency resolver.
+ .
+ This package provides common data and configuration files.
+
+Package: dnf-doc
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends},
+Description: Documentation for the DNF package manager (common documentation)
+ Package manager forked from Yum, using libsolv as a dependency resolver.
+ .
+ This package installs common documentation for the dnf program.
+
+Package: yum4
+Depends: ${misc:Depends},
+ nextgen-yum4,
+Architecture: all
+Priority: optional
+Section: oldlibs
+Description: transitional package
+ This is a transitional package. It can safely be removed.
+
+Package: nextgen-yum4
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends},
+ dnf (= ${binary:Version}),
+ deltarpm,
+Breaks: yum4 (<< 4.2.9-1~)
+Replaces: yum4 (<< 4.2.9-1~)
+Provides: yum4 (= 4.2.9-1~)
+Description: DNF (Dandified Yum) Yum CLI compatibility layer
+ Package manager forked from Yum, using libsolv as a dependency resolver.
+ .
+ This package installs a Yum CLI compatibility layer redirecting
+ /usr/bin/yum4 to DNF.
+
+Package: python3-dnf
+Architecture: all
+Multi-Arch: foreign
+Section: python
+Depends: ${python3:Depends}, ${misc:Depends},
+ dnf-data (= ${binary:Version}),
+ python3-gpg,
+ deltarpm,
+ python3-hawkey (>= 0.35.3-1~),
+ python3-libdnf (>= 0.35.3-1~),
+ python3-libcomps (>= 0.1.8-1~),
+ python3-rpm (>= 4.14.0-1~),
+ python3-distutils | libpython3-stdlib (<< 3.7~),
+Recommends: python3-unbound,
+Suggests: python3-dnf-doc
+Description: Python interface to DNF (Python 3)
+ Package manager forked from Yum, using libsolv as a dependency resolver.
+ .
+ This package installs the DNF interface for Python 3.
+
+Package: python3-dnf-doc
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${sphinxdoc:Depends}, ${misc:Depends},
+Description: Python 3 interface to DNF (common documentation)
+ Package manager forked from Yum, using libsolv as a dependency resolver.
+ .
+ This package installs common documentation for the DNF interface for Python
+ 3.

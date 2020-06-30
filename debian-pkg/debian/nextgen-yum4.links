@@ -1,0 +1,2 @@
+usr/bin/dnf-3 usr/bin/yum4
+usr/share/man/man8/dnf.8.gz usr/share/man/man8/yum4.8.gz

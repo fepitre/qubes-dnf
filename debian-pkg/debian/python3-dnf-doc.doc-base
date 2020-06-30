@@ -1,0 +1,12 @@
+Document: dnf
+Title: Dnf User Manual and Python API Reference
+Author: Red Hat, Inc.
+Abstract: DNF is the next upcoming major version of YUM, a package manager for
+ RPM-based Linux distributions. It roughly maintains CLI compatibility with YUM
+ and defines a strict API for extensions and plugins.
+ This document covers use cases and its Python API.
+Section: System/Package Management
+
+Format: HTML
+Index: /usr/share/doc/python3-dnf-doc/html/index.html
+Files: /usr/share/doc/python3-dnf-doc/html/*.html

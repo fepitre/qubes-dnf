@@ -1,0 +1,21 @@
+Description: Provide custom bash-completion directory fallback.
+Author: Mihai Moldovan <ionic@ionic.de>
+
+Older distro versions (like stretch) don't have a bash-completion cmake config
+file, so findpackage() won't work correctly.
+
+That's not an issue for more recent versions (buster and up) because they do
+provide the needed files, but let's allow specifying a custom path for the
+older ones.
+
+--- a/etc/bash_completion.d/CMakeLists.txt
++++ b/etc/bash_completion.d/CMakeLists.txt
+@@ -2,6 +2,8 @@ find_package(bash-completion QUIET)
+ if(NOT BASH_COMPLETION_COMPLETIONSDIR)
+     if(BASH_COMPLETION_COMPATDIR)
+         set(BASH_COMPLETION_COMPLETIONSDIR ${BASH_COMPLETION_COMPATDIR})
++    elseif(BASH_COMPLETION_FALLBACKDIR)
++        set(BASH_COMPLETION_COMPLETIONSDIR ${BASH_COMPLETION_FALLBACKDIR})
+     else()
+         set(BASH_COMPLETION_COMPLETIONSDIR "${SYSCONFDIR}/bash_completion.d")
+     endif()
