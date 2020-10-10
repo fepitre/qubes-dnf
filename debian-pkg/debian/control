@@ -10,15 +10,15 @@ Build-Depends: debhelper (>= 9~),
  cmake,
  pkg-config,
  gettext,
- python3-hawkey (>= 0.35.3-1~),
- python3-libdnf (>= 0.35.3-1~),
- python3-libcomps (>= 0.1.8-1~),
+ python3-hawkey (>= 0.48.0-1~),
+ python3-libdnf (>= 0.48.0-1~),
+ python3-libcomps (>= 0.1.15-1~),
  python3-rpm (>= 4.14.0-1~),
  systemd,
  python3-sphinx,
  python3-nose,
  python3-gpg,
- libmodulemd1 (>= 1.4.0-1~),
+ libmodulemd2 (>= 2.9.4-1~),
 Standards-Version: 4.4.0.1
 Homepage: https://github.com/rpm-software-management/dnf
 Vcs-Browser: https://github.com/rpm-software-management/dnf
@@ -31,7 +31,7 @@ Multi-Arch: foreign
 Depends: ${misc:Depends}, ${python3:Depends},
  dnf-data (= ${binary:Version}),
  python3-dnf (= ${binary:Version}),
- libmodulemd1 (>= 1.4.0-1~),
+ libmodulemd2 (>= 2.9.4-1~),
  python3-dbus,
  sqlite3,
 Breaks: dnf-plugins-core (<< 4.0.6-1~)
@@ -74,9 +74,9 @@ Multi-Arch: foreign
 Depends: ${misc:Depends},
  dnf (= ${binary:Version}),
  deltarpm,
-Breaks: yum4 (<< 4.2.9-1~)
-Replaces: yum4 (<< 4.2.9-1~)
-Provides: yum4 (= 4.2.9-1~)
+Breaks: yum4 (<< 4.2.23-1~)
+Replaces: yum4 (<< 4.2.23-1~)
+Provides: yum4 (= 4.2.23-1~)
 Description: DNF (Dandified Yum) Yum CLI compatibility layer
  Package manager forked from Yum, using libsolv as a dependency resolver.
  .
@@ -90,9 +90,9 @@ Section: python
 Depends: ${python3:Depends}, ${misc:Depends},
  dnf-data (= ${binary:Version}),
  python3-gpg,
- python3-hawkey (>= 0.35.3-1~),
- python3-libdnf (>= 0.35.3-1~),
- python3-libcomps (>= 0.1.8-1~),
+ python3-hawkey (>= 0.48.0-1~),
+ python3-libdnf (>= 0.48.0-1~),
+ python3-libcomps (>= 0.1.15-1~),
  python3-rpm (>= 4.14.0-1~),
  python3-distutils | libpython3-stdlib (<< 3.7~),
 Recommends: deltarpm, python3-unbound,
