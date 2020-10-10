@@ -1,0 +1,23 @@
+From e854883bc0bee0588f51a4fa3b9823be256c3572 Mon Sep 17 00:00:00 2001
+From: Mihai Moldovan <ionic@ionic.de>
+Date: Sat, 10 Oct 2020 11:49:55 +0200
+Subject: [PATCH] 000120_CMakeLists.txt_create-testing-persistdir
+
+---
+ CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b25428e7..4af5e254 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -38,4 +38,6 @@ CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/tests/modules/etc/dnf/repos.d/test.repo.in ${
+ CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/tests/modules/etc/dnf/dnf.conf.in ${CMAKE_SOURCE_DIR}/tests/modules/etc/dnf/dnf.conf @ONLY)
+ 
+ CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/etc/dnf/dnf_test.conf.in ${CMAKE_SOURCE_DIR}/etc/dnf/dnf_test.conf @ONLY)
++
++FILE(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tests/dnfpersist)
+ CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/doc/conf.py.in ${CMAKE_SOURCE_DIR}/doc/conf.py @ONLY)
+-- 
+2.26.2
+

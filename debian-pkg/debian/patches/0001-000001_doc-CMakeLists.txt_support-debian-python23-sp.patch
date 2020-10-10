@@ -1,6 +1,14 @@
-Description: Use the correct sphinx-build script, based upon python value.
-Author: Mihai Moldovan <ionic@ionic.de>
+From 4e47ec5095e2fea5e2df493299a358400e4ba990 Mon Sep 17 00:00:00 2001
+From: Mihai Moldovan <ionic@ionic.de>
+Date: Sat, 10 Oct 2020 11:49:55 +0200
+Subject: [PATCH] 000001_doc-CMakeLists.txt_support-debian-python23-sphinx
 
+---
+ doc/CMakeLists.txt | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/doc/CMakeLists.txt b/doc/CMakeLists.txt
+index 2896c422..c8894cc3 100644
 --- a/doc/CMakeLists.txt
 +++ b/doc/CMakeLists.txt
 @@ -1,11 +1,7 @@
@@ -16,3 +24,6 @@ Author: Mihai Moldovan <ionic@ionic.de>
  
  
  ADD_CUSTOM_TARGET (doc-html
+-- 
+2.26.2
+
