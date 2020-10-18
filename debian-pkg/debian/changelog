@@ -1,3 +1,14 @@
+dnf (4.2.23-2) unstable; urgency=medium
+
+  [ Frédéric Pierret (fepitre) ]
+  * Update to dnf-4.2.23
+  * version 4.2.23-1
+
+  [ Marek Marczykowski-Górecki ]
+  * travis: skip install test nextgen-yum4
+
+ -- Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>  Sun, 18 Oct 2020 03:13:37 +0200
+
 dnf (4.2.23-1) unstable; urgency=medium
 
   * Update to dnf-4.2.23
