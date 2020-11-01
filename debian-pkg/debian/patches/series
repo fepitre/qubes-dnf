@@ -4,3 +4,4 @@
 0004-000120_CMakeLists.txt_create-testing-persistdir.patch
 0005-000130_tests-test_cli.py_use-testing-configuration-f.patch
 0006-000200_etc_bash_completion.d_CMakelists.txt_provide-.patch
+0001-detect_releasever-don-t-return-None-but-instead.patch
