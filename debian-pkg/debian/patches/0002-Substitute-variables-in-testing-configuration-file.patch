@@ -1,7 +1,7 @@
-From 740670ae72612014b1284e2cf1b26de171aa2435 Mon Sep 17 00:00:00 2001
+From dcfaa8e7af7812e21e07ba4e7bb0d625c70c1b1d Mon Sep 17 00:00:00 2001
 From: Mihai Moldovan <ionic@ionic.de>
 Date: Sat, 10 Oct 2020 11:49:55 +0200
-Subject: [PATCH] 000110_CMakeLists.txt_substitute-etc-dnf-dnf_test.conf.in
+Subject: [PATCH] Substitute variables in testing configuration file.
 
 ---
  CMakeLists.txt | 2 ++

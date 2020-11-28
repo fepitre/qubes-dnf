@@ -1,7 +1,7 @@
-From e854883bc0bee0588f51a4fa3b9823be256c3572 Mon Sep 17 00:00:00 2001
+From 15762b701daf0ec3abcb2d3262d81867519db7d1 Mon Sep 17 00:00:00 2001
 From: Mihai Moldovan <ionic@ionic.de>
 Date: Sat, 10 Oct 2020 11:49:55 +0200
-Subject: [PATCH] 000120_CMakeLists.txt_create-testing-persistdir
+Subject: [PATCH] Create persistdir for testing suite.
 
 ---
  CMakeLists.txt | 2 ++
