@@ -1,7 +1,7 @@
-From daf9fd16842e0ffa6d61b4cdbff9cafa11115e08 Mon Sep 17 00:00:00 2001
+From 140f00fa1e85bbc245def7eab8eb5aa9808b9daf Mon Sep 17 00:00:00 2001
 From: Mihai Moldovan <ionic@ionic.de>
 Date: Sat, 10 Oct 2020 11:49:55 +0200
-Subject: [PATCH] 000100_etc-dnf-dnf_test.conf.in_add-testing-configuration
+Subject: [PATCH] Add a testing configuration for the test suite.
 
 We have to make sure that dnf uses a persistdir that actually exists. In a
 build environment, we can't just create system directories and writing to the

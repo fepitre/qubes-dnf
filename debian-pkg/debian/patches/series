@@ -1,7 +1,7 @@
-0001-000001_doc-CMakeLists.txt_support-debian-python23-sp.patch
-0002-000100_etc-dnf-dnf_test.conf.in_add-testing-configur.patch
-0003-000110_CMakeLists.txt_substitute-etc-dnf-dnf_test.co.patch
-0004-000120_CMakeLists.txt_create-testing-persistdir.patch
-0005-000130_tests-test_cli.py_use-testing-configuration-f.patch
-0006-000200_etc_bash_completion.d_CMakelists.txt_provide-.patch
-0001-detect_releasever-don-t-return-None-but-instead.patch
+0001-docs-define-SPHINX_BUILD_NAME-with-sphinx-python-pat.patch
+0002-Add-a-testing-configuration-for-the-test-suite.patch
+0003-Substitute-variables-in-testing-configuration-file.patch
+0004-Create-persistdir-for-testing-suite.patch
+0005-Use-custom-testing-dnf-configuaration-file-for-some-.patch
+0006-Provide-custom-bash-completion-directory-fallback.patch
+0007-detect_releasever-don-t-return-None-but-instead.patch
