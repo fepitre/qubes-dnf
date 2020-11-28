@@ -1,3 +1,10 @@
+dnf (4.4.2-1) unstable; urgency=medium
+
+  * Reformat patches with original author's description
+  * Update to dnf-4.4.2
+
+ -- Frédéric Pierret (fepitre) <frederic.pierret@qubes-os.org>  Sat, 28 Nov 2020 18:51:49 +0100
+
 dnf (4.4.0-1) unstable; urgency=medium
 
   * Update to dnf-4.4.0
