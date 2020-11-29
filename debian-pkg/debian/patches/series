@@ -5,3 +5,4 @@
 0005-Use-custom-testing-dnf-configuaration-file-for-some-.patch
 0006-Provide-custom-bash-completion-directory-fallback.patch
 0007-detect_releasever-don-t-return-None-but-instead.patch
+0008-tests-ensure-default-LANG-to-C-and-LANGUAGE-to-en_US.patch
