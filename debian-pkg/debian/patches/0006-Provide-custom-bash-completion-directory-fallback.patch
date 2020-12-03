@@ -1,8 +1,7 @@
-From e1599b5135ef6bf093562c34fd75659ec5afed9c Mon Sep 17 00:00:00 2001
+From d01057244891d6d858466b7ae46ce346af19dacc Mon Sep 17 00:00:00 2001
 From: Mihai Moldovan <ionic@ionic.de>
 Date: Sat, 10 Oct 2020 11:49:55 +0200
-Subject: [PATCH] 
- 000200_etc_bash_completion.d_CMakelists.txt_provide-custom-bashcompdir-fallback
+Subject: [PATCH] Provide custom bash-completion directory fallback.
 
 Older distro versions (like stretch) don't have a bash-completion cmake config
 file, so findpackage() won't work correctly.

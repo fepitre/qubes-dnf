@@ -1,0 +1,28 @@
+From 7b9690d218736485c122b538ffacd8e5da2cdff4 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Pierret=20=28fepitre=29?=
+ <frederic.pierret@qubes-os.org>
+Date: Sun, 1 Nov 2020 22:01:06 +0100
+Subject: [PATCH] detect_releasever: don't return None but '' instead.
+
+It prevents tests to fail while detecting None as releasever.
+'rawhide' is an authorized value so better use empty string value.
+---
+ dnf/rpm/__init__.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/dnf/rpm/__init__.py b/dnf/rpm/__init__.py
+index 696e594e..7e65a7e3 100644
+--- a/dnf/rpm/__init__.py
++++ b/dnf/rpm/__init__.py
+@@ -67,7 +67,7 @@ def detect_releasever(installroot):
+         if is_py3bytes(releasever):
+             releasever = str(releasever, "utf-8")
+         return releasever
+-    return None
++    return ''
+ 
+ 
+ def _header(path):
+-- 
+2.26.2
+

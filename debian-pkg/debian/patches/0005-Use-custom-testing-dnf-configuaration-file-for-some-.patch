@@ -1,14 +1,14 @@
-From 0c44da60f6e371392457947f51ae54b4e64a6bee Mon Sep 17 00:00:00 2001
+From de38a799cdedbe9c83998d72529de21f58dea611 Mon Sep 17 00:00:00 2001
 From: Mihai Moldovan <ionic@ionic.de>
 Date: Sat, 10 Oct 2020 11:49:55 +0200
-Subject: [PATCH] 000130_tests-test_cli.py_use-testing-configuration-file
+Subject: [PATCH] Use custom testing dnf configuaration file for (some) tests.
 
 ---
  tests/test_cli.py | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/tests/test_cli.py b/tests/test_cli.py
-index f519476c..b5b9ff37 100644
+index 9c130c36..a080eeb8 100644
 --- a/tests/test_cli.py
 +++ b/tests/test_cli.py
 @@ -183,7 +183,7 @@ class ConfigureTest(tests.support.DnfBaseTestCase):

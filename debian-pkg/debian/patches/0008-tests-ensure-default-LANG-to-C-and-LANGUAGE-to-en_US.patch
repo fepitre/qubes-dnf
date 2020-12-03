@@ -1,0 +1,27 @@
+From 751daac624d554375b0076211f6c1b547c9a48a0 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Pierret=20=28fepitre=29?=
+ <frederic.pierret@qubes-os.org>
+Date: Sun, 29 Nov 2020 12:39:00 +0100
+Subject: [PATCH] tests: ensure default LANG to C and LANGUAGE to en_US
+
+It corresponds to expected values in tests with LC_ALL=C and the
+language used while asserting equal english sentences with the
+returned ones from system. It has been observed that manipulating
+locales in Debian environement, LC_ALL=C is not sufficient.
+---
+ tests/__init__.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/tests/__init__.py b/tests/__init__.py
+index 51e09aec..a344327b 100644
+--- a/tests/__init__.py
++++ b/tests/__init__.py
+@@ -21,3 +21,5 @@ import os
+ 
+ # run tests with C locales
+ os.environ["LC_ALL"] = "C"
++os.environ["LANG"] = "C.UTF-8"
++os.environ["LANGUAGE"] = "en_US:en"
+-- 
+2.26.2
+
