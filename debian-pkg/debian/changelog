@@ -1,3 +1,10 @@
+dnf (4.5.2-1) unstable; urgency=medium
+
+  * detect_releasever: no need to change returned value anymore
+  * Update to dnf-4.5.2
+
+ -- Frédéric Pierret (fepitre) <frederic.pierret@qubes-os.org>  Tue, 22 Dec 2020 11:38:59 +0100
+
 dnf (4.4.2-1) unstable; urgency=medium
 
   * Reformat patches with original author's description
